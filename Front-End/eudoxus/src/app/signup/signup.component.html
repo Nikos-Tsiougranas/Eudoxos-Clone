@@ -1,0 +1,81 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/home">Αρχική</a></li>
+        <li class="breadcrumb-item active" aria-current="">Εγγραφή</li>
+    </ol>
+</nav>
+<div class="mx-auto mt-4 w-25 pb-5 mb-5 bb-5 h-100">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="form-group">
+          Επιλέξτε τύπο χρήστη
+          <select class="form-control w-100" id="sel1" ngModel name=user_type (change)="selectedType()">
+              <option value=''>--Διαλεξε Ιδιότητα--</option>
+              <option *ngFor="let type of types" >{{type}}</option>
+          </select>
+      </div>
+      <div *ngIf="registrationtype==1;">
+        <div class="form-group">
+            Επιλέξτε Ίδρυμα
+          <select class="form-control w-100" id="sel1" ngModel name=university_type (change)="selectedUniversityType()">
+              <option value=''>--Διαλεξε Ιδρυμα--</option>
+              <option *ngFor="let university_type of university_types" >{{university_type}}</option>
+          </select>
+        </div>
+        <div *ngIf="university_chosen!='';">
+          <div class="form-group">
+              Επιλέξτε Τμήμα
+            <select class="form-control w-100" id="sel1" ngModel name=class_type>
+              <option value=''>--Διαλεξε Τμήμα--</option>
+              <option *ngFor="let class_type of class_types" >{{class_type}}</option>
+            </select>
+          </div>
+          Αριθμός Μητρώου
+          <input type="number" class="form-control" placeholder="Αριθμός Μητρώου" ngModel name="AM">
+          Email
+          <input type="email" class="form-control" placeholder="e-mail" ngModel name="email">
+          Κωδικός
+          <input type="password" class="form-control" placeholder="Password" ngModel name="password1">
+          Επιβεβαίωση Κωδικού
+          <input type="password" class="form-control" placeholder="Επανάληψη Password" ngModel name="password2">
+          Όνομα
+          <input type="text" class="form-control" placeholder="Όνομα" ngModel name="name">
+          Επίθετο
+          <input type="text" class="form-control" placeholder="Επίθετο" ngModel name="surname">
+          Τηλέφωνο
+          <input type="tel" class="form-control" placeholder="Τηλέφωνο" ngModel name="tel">
+          Τρέχον Εξάμηνο
+          <input type="number" class="form-control" placeholder="Τρέχον Εξάμηνο" ngModel name="run_semester">
+          Αριθμός συγγραμμάτων πριν τον Ευδοξο
+          <input type="number" class="form-control" placeholder="Αριθμός συγγραμμάτων πριν τον Ευδοξο" ngModel name="numofbooks">
+          <button type="submit" class="btn btn-primary float-right mt-2">Εγγραφή</button>
+        </div>
+      </div>
+      <div *ngIf="registrationtype==2;">
+        Όνομα Σημείου Διανομής
+        <input type="text" class="form-control" placeholder="Σημείο Διανομής" ngModel name="name">
+        Επιλέξτε Τύπο Σημείου Διανομής
+        <div class="form-group">
+          <select class="form-control w-100" id="sel1" ngModel name=class_type>
+            <option value=''>--Τύπος Σημείου Διανομής--</option>
+            <option *ngFor="let class_type of class_types2" >{{class_type}}</option>
+          </select>
+        </div>
+        
+        Διεύθυνση
+        <input type="text" class="form-control" placeholder="Διεύθυνση" ngModel name="address">
+        Email
+        <input type="email" class="form-control" placeholder="shmeiodianomhs@email.com" ngModel name="email">
+        Κωδικός
+        <input type="password" class="form-control" placeholder="Password" ngModel name="password1">
+        Επιβεβαίωση Κωδικού
+        <input type="password" class="form-control" placeholder="Επανάληψη Password" ngModel name="password2">
+        Τηλέφωνο
+        <input type="tel" class="form-control" placeholder="6982854540" ngModel name="tel">
+        Ωράριο Λειτουργίας
+        <input type="text" class="form-control" placeholder="24/7" ngModel name="time_open">
+        Όνοματεπωνυμο Υπευθύνου
+        <input type="text" class="form-control" placeholder="Μάκης" ngModel name="senior">
+        <button type="submit" class="btn btn-primary float-right mt-2">Εγγραφή</button>
+      </div>         
+    </form>
+</div>
